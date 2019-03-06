@@ -15,6 +15,9 @@ func Migrate() {
 	m := setupMigrate()
 	err := m.Up()
 	if err != nil {
+		if err == migrate.ErrNoChange {
+			return
+		}
 		panic(fmt.Sprintf("migration up failed, error: %s", err.Error()))
 	}
 }
