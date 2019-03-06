@@ -1,6 +1,9 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"fmt"
+	"github.com/spf13/viper"
+)
 
 type AppConfig struct {
 	appPort int
@@ -53,4 +56,9 @@ func DatabaseName() string {
 
 func DatabaseHost() string {
 	return dbConfig.dbHost
+}
+
+func DatabaseUrl() string {
+	return fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable",
+		DatabaseUser(), DatabasePassword(), DatabaseHost(), 5432, DatabaseName())
 }

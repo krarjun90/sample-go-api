@@ -43,11 +43,6 @@ func setupMigrate() *migrate.Migrate {
 	if err != nil {
 		return nil
 	}
-	m, err := migrate.NewWithSourceInstance("go-bindata", d, databaseUrl())
+	m, err := migrate.NewWithSourceInstance("go-bindata", d, config.DatabaseUrl())
 	return m
-}
-
-func databaseUrl() string {
-	return fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable",
-		config.DatabaseUser(),config.DatabasePassword(), config.DatabaseHost(), 5432, config.DatabaseName())
 }

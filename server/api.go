@@ -13,7 +13,6 @@ import (
 )
 
 func StartApiServer() {
-	config.Load()
 	fmt.Printf("Starting server at port : %v", config.AppPort())
 
 	mux := mux.NewRouter()
