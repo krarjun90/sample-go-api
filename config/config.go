@@ -30,10 +30,10 @@ func Load() {
 	}
 
 	dbConfig = &DatabaseConfig{
-		dbHost: viper.GetString("DB_HOST"),
-		dbUser: viper.GetString("DB_USER"),
+		dbHost:     viper.GetString("DB_HOST"),
+		dbUser:     viper.GetString("DB_USER"),
 		dbPassword: viper.GetString("DB_PASSWORD"),
-		dbName: viper.GetString("DB_NAME"),
+		dbName:     viper.GetString("DB_NAME"),
 	}
 
 }

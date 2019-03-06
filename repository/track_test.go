@@ -20,7 +20,7 @@ func (s *TestTrackRepositorySuite) SetupTest() {
 	s.db = sqlx.MustConnect("postgres", "user=postgres dbname=sample_go_api sslmode=disable")
 
 	_, err := s.db.Exec("truncate table tracks;")
-	if err != nil{
+	if err != nil {
 		panic("error dropping tracks, err: %s" + err.Error())
 	}
 }
@@ -31,16 +31,16 @@ func (s *TestTrackRepositorySuite) TestTrackRepository() {
 	repo := NewTrackRepository(s.db)
 
 	track1 := models.Track{
-		Title: "JaiHo",
-		Album: "Slumdog Millionaire",
-		Singer: "Sukhwinder Singh",
+		Title:    "JaiHo",
+		Album:    "Slumdog Millionaire",
+		Singer:   "Sukhwinder Singh",
 		Duration: "5:19",
 	}
 
 	track2 := models.Track{
-		Title: "Aaj Ki Raat",
-		Album: "Slumdog Millionaire",
-		Singer: "Sonu Nigam",
+		Title:    "Aaj Ki Raat",
+		Album:    "Slumdog Millionaire",
+		Singer:   "Sonu Nigam",
 		Duration: "6:07",
 	}
 

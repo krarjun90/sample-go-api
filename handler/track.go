@@ -19,11 +19,11 @@ func NewTrackHandler(trackRepo repository.TrackRepository) *TrackHandler {
 	}
 }
 
-func(t *TrackHandler) GetAllTracks(w http.ResponseWriter, r *http.Request) {
+func (t *TrackHandler) GetAllTracks(w http.ResponseWriter, r *http.Request) {
 	allTracks, err := t.trackRepo.GetAllTracks()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("error: "  + err.Error()))
+		w.Write([]byte("error: " + err.Error()))
 		return
 	}
 
@@ -33,19 +33,19 @@ func(t *TrackHandler) GetAllTracks(w http.ResponseWriter, r *http.Request) {
 	w.Write(b)
 }
 
-func(t *TrackHandler) GetTrackById(w http.ResponseWriter, r *http.Request) {
+func (t *TrackHandler) GetTrackById(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	trackId, err := strconv.ParseInt(params["id"], 10, 32)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("error: "  + err.Error()))
+		w.Write([]byte("error: " + err.Error()))
 		return
 	}
 
 	track, err := t.trackRepo.GetTrackById(int32(trackId))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("error: "  + err.Error()))
+		w.Write([]byte("error: " + err.Error()))
 		return
 	}
 
@@ -55,39 +55,39 @@ func(t *TrackHandler) GetTrackById(w http.ResponseWriter, r *http.Request) {
 	w.Write(b)
 }
 
-func(t *TrackHandler) DeleteTrackById(w http.ResponseWriter, r *http.Request) {
+func (t *TrackHandler) DeleteTrackById(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	trackId, err := strconv.ParseInt(params["id"], 10, 32)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("error: "  + err.Error()))
+		w.Write([]byte("error: " + err.Error()))
 		return
 	}
 
 	err = t.trackRepo.DeleteTrackById(int32(trackId))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("error: "  + err.Error()))
+		w.Write([]byte("error: " + err.Error()))
 		return
 	}
 
 	w.WriteHeader(http.StatusOK)
 }
 
-func(t *TrackHandler) AddTrack(w http.ResponseWriter, r *http.Request) {
+func (t *TrackHandler) AddTrack(w http.ResponseWriter, r *http.Request) {
 	newTrack := &models.Track{}
 	err := json.NewDecoder(r.Body).Decode(newTrack)
 
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("error parsing request body: "  + err.Error()))
+		w.Write([]byte("error parsing request body: " + err.Error()))
 		return
 	}
 
 	_, err = t.trackRepo.AddTrack(newTrack)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("error adding track, error: "  + err.Error()))
+		w.Write([]byte("error adding track, error: " + err.Error()))
 		return
 	}
 

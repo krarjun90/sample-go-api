@@ -29,7 +29,7 @@ func Rollback() {
 
 func setupMigrate() *migrate.Migrate {
 	var err error
-	defer func(){
+	defer func() {
 		if err != nil {
 			panic(fmt.Sprintf("migration setup failed, error: %s", err.Error()))
 		}

@@ -22,7 +22,6 @@ func NewTrackRepository(db *sqlx.DB) TrackRepository {
 	}
 }
 
-
 func (t *trackRepository) GetAllTracks() ([]models.Track, error) {
 	var tracks []models.Track
 	err := t.db.Select(&tracks, "select id, title, singer, album, duration from tracks")
