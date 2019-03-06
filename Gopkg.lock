@@ -64,6 +64,21 @@
   version = "v1.8.0"
 
 [[projects]]
+  digest = "1:690a8bf9823afa8843f01bc179e596da8d9002ca1fee935bc898b656709f7dcd"
+  name = "github.com/mattes/migrate"
+  packages = [
+    ".",
+    "database",
+    "database/postgres",
+    "source",
+    "source/file",
+    "source/go-bindata",
+  ]
+  pruneopts = "UT"
+  revision = "035c07716cd373d88456ec4d701402df52584cb4"
+  version = "v3.0.1"
+
+[[projects]]
   digest = "1:53bc4cd4914cd7cd52139990d5170d6dc99067ae31c56530621b18b35fc30318"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
@@ -174,6 +189,10 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gorilla/mux",
+    "github.com/mattes/migrate",
+    "github.com/mattes/migrate/database/postgres",
+    "github.com/mattes/migrate/source/file",
+    "github.com/mattes/migrate/source/go-bindata",
     "github.com/spf13/viper",
     "github.com/urfave/negroni",
     "gopkg.in/alecthomas/kingpin.v2",

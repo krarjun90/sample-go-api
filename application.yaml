@@ -1,1 +1,5 @@
 APP_PORT: 8080
+DB_NAME: sample_go_api
+DB_USER: postgres
+DB_PASSWORD:
+DB_HOST: localhost

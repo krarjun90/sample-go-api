@@ -14,3 +14,4 @@
 .idea/
 vendor/
 sample-go-api
+generated_migration_file.go
