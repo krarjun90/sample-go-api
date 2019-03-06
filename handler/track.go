@@ -2,11 +2,12 @@ package handler
 
 import (
 	"encoding/json"
+	"net/http"
+	"strconv"
+
 	"github.com/gorilla/mux"
 	"github.com/krarjun90/sample-go-api/models"
 	"github.com/krarjun90/sample-go-api/repository"
-	"net/http"
-	"strconv"
 )
 
 type TrackHandler struct {

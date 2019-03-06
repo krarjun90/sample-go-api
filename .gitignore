@@ -13,6 +13,7 @@
 
 .idea/
 vendor/
+mocks/
 sample-go-api
 sample_go_api
 generated_migration_file.go

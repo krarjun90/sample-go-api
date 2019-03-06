@@ -1,5 +1,7 @@
 package repository
 
+//go:generate mockery -output ../mocks -name TrackRepository
+
 import (
 	"github.com/jmoiron/sqlx"
 	"github.com/krarjun90/sample-go-api/models"

@@ -11,5 +11,12 @@ make
 
 ## Start service
 ```sh
-./sample_go_api start
+make start
+```
+
+## Test
+Mocks are generated using mockery. Generated files are not checked in. 
+
+```sh
+make test
 ```
